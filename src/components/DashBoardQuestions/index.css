@@ -1,0 +1,37 @@
+.questionAndAnswerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+  border: 1px solid #ffffff;
+  padding: 15px;
+}
+
+.questioncontent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.questionNo {
+  margin-right: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: 'roboto';
+  color: #ffffff;
+}
+
+.question {
+  font-weight: 600;
+  font-size: 24px;
+  font-family: 'roboto';
+  color: #f03d22;
+}
+
+.answer {
+  margin-top: 0px;
+  font-weight: 600;
+  font-size: 20px;
+  font-family: 'roboto';
+  color: #5b83f0;
+}

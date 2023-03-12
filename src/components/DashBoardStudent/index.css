@@ -1,0 +1,39 @@
+.questionAndAnswerContainerDashBoard {
+  display: flex;
+  flex-direction: column;
+  background-color: #505359;
+  padding: 20px;
+  width: 50%;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.questioncontentDashboard {
+  display: flex;
+  align-items: center;
+}
+
+.questionNoDashboard {
+  margin-right: 8px;
+  font-weight: 600;
+  font-size: 18px;
+
+  font-family: 'roboto';
+  color: #ffffff;
+}
+
+.questionDashboard {
+  font-weight: 600;
+  font-size: 24px;
+  font-family: 'roboto';
+  color: #f03d22;
+}
+
+.answerDashboard {
+  margin-top: 0px;
+  font-weight: 600;
+  font-size: 20px;
+  font-family: 'roboto';
+  color: #5b83f0;
+  align-items: center;
+}

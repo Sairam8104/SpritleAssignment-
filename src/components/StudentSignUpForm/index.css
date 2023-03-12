@@ -1,0 +1,69 @@
+.studentSignupFormContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.studentSignupformContainer {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: #66e3a7;
+}
+
+.studentSignupinputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.studentSignuplabelEl {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  font-family: 'roboto';
+}
+
+.studentSignupinputBar {
+  height: 30px;
+  width: 100%;
+  border: 1px solid #53575c;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: transparent;
+  color: #53575c;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.SignUpButton {
+  height: 45px;
+  width: 100%;
+  padding: 5px;
+  color: #ffffff;
+  text-align: center;
+
+  font-family: 'roboto';
+  background-color: #7486cf;
+  border: none;
+
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.studentSignuperrorMsg {
+  color: #ed1515;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.para {
+  font-size: 20px;
+  font-weight: 600;
+}

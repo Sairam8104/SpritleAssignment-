@@ -1,0 +1,24 @@
+.StudentDashBoardContainer {
+  height: 100vh;
+  padding: 50px;
+}
+
+.heading {
+  text-align: center;
+}
+
+.logoutBtn {
+  height: 45px;
+  width: 120px;
+  padding: 5px;
+  color: #ffffff;
+  text-align: center;
+
+  font-family: 'roboto';
+  background-color: #4e9ce6;
+  border: none;
+
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
