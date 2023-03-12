@@ -9,6 +9,7 @@ class StudentSignUpForm extends Component {
     password: '',
     rePassword: '',
     errorMsg: '',
+    error: false,
   }
 
   onChangeEmail = event => {
@@ -28,17 +29,26 @@ class StudentSignUpForm extends Component {
     const {emailInput, password, rePassword} = this.state
 
     if (emailInput === ' ' || password === '' || rePassword === '') {
-      this.setState({errorMsg: 'please enter valid details'})
+      this.setState({errorMsg: 'please enter valid details', error: true})
     } else if (password !== rePassword) {
-      this.setState({errorMsg: 'please enter correct match password'})
+      this.setState({
+        errorMsg: 'please enter correct match password',
+        error: true,
+      })
     } else {
       const StudentLoginDetails =
         JSON.parse(localStorage.getItem('studentSignDetails')) || []
       const user = StudentLoginDetails.filter(each => each.email === emailInput)
-      if (user.len === 0) {
+      console.log(user)
+      if (user.length >= 1) {
         this.setState({
           errorMsg: 'Username already exist.Please try another name',
+          error: true,
+          emailInput: '',
+          password: '',
+          rePassword: '',
         })
+        return
       }
       const newStudentLoginDetails = {
         id: uuidv4(),
@@ -60,7 +70,7 @@ class StudentSignUpForm extends Component {
   }
 
   render() {
-    const {emailInput, password, rePassword, errorMsg} = this.state
+    const {emailInput, password, rePassword, errorMsg, error} = this.state
     return (
       <div className="studentSignupFormContainer">
         <h1>Student SignUp Form</h1>
@@ -107,7 +117,7 @@ class StudentSignUpForm extends Component {
           <button type="submit" className="SignUpButton">
             Sign Up
           </button>
-          <p className="studentSignuperrorMsg">{errorMsg}</p>
+          {error && <p className="studentSignuperrorMsg">{errorMsg}</p>}
           <Link to="/studentLoginForm">
             <p className="para">Already have account?</p>
           </Link>

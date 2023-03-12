@@ -9,6 +9,7 @@ class MasterSignUpForm extends Component {
     password: '',
     rePassword: '',
     errorMsg: '',
+    error: false,
   }
 
   onChangeEmail = event => {
@@ -28,19 +29,27 @@ class MasterSignUpForm extends Component {
     const {emailInput, password, rePassword} = this.state
 
     if (emailInput === ' ' || password === '' || rePassword === '') {
-      this.setState({errorMsg: 'please enter valid details'})
+      this.setState({errorMsg: 'please enter valid details', error: true})
     } else if (password !== rePassword) {
-      this.setState({errorMsg: 'please enter correct match password'})
+      this.setState({
+        errorMsg: 'please enter correct match password',
+        error: true,
+      })
     } else {
       const MasterLoginDetails =
         JSON.parse(localStorage.getItem('masterSignDetails')) || []
 
       const user = MasterLoginDetails.filter(each => each.email === emailInput)
-
-      if (user.len === 1) {
+      console.log(user)
+      if (user.length >= 1) {
         this.setState({
           errorMsg: 'Username already exist.Please try another name',
+          error: true,
+          emailInput: '',
+          password: '',
+          rePassword: '',
         })
+        return
       }
       const newMasterLoginDetails = {
         id: uuidv4(),
@@ -52,6 +61,7 @@ class MasterSignUpForm extends Component {
         emailInput: '',
         password: '',
         rePassword: '',
+        error: false,
       })
 
       localStorage.setItem(
@@ -62,7 +72,7 @@ class MasterSignUpForm extends Component {
   }
 
   render() {
-    const {emailInput, password, rePassword, errorMsg} = this.state
+    const {emailInput, password, rePassword, errorMsg, error} = this.state
     return (
       <div className="masterSignupFormContainer">
         <form
@@ -108,7 +118,7 @@ class MasterSignUpForm extends Component {
           <button type="submit" className="SignUpButton">
             Sign Up
           </button>
-          <p className="masterSignuperrorMsg">{errorMsg}</p>
+          {error && <p className="masterSignuperrorMsg">{errorMsg}</p>}
           <Link to="/masterLoginForm">
             <p className="para">Already have account?</p>
           </Link>
